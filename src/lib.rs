@@ -1,0 +1,2 @@
+// RENAME THIS FILE TO SOMETHING ELSE TO MAKE IT ALL WORK
+pub mod cxxqt_object;

@@ -1,0 +1,45 @@
+[package]
+name = "cxx-qt-lib-test"
+# don't change this, it's updated before an actual build by update-version.sh
+version = "0.0.0-development"
+edition = "2021"
+rust-version = "1.77.2"
+authors = ["Kristof Mattei"]
+description = "Rust end-to-end application"
+license-file = "LICENSE"
+categories = ["starter", "end-to-end"]
+keywords = ["integrity", "end-to-end", "starter", "docker", "release"]
+repository = "https://github.com/kristof-mattei/cxx-qt-lib-test"
+
+[lints.clippy]
+# don't stop from compiling / running
+all = "warn"
+pedantic = "warn"
+cargo = "warn"
+# this one causes confusion when combining variables (`foo`) and
+# dereferenced variables (`foo.bar`). The latter cannot be inlined
+# so we don't inline anything
+uninlined-format-args = { level = "allow", priority = 127 }
+
+[lints.rust]
+let_underscore_drop = { level = "deny", priority = 127 }
+non_ascii_idents = { level = "deny", priority = 127 }
+
+[features]
+coverage = []
+
+[dependencies]
+cxx = "1.0.121"
+cxx-qt = "0.6.0"
+cxx-qt-lib = "0.6.0"
+
+[build-dependencies]
+cxx-qt-build = { version = "0.6.0", features = ["link_qt_object_files"] }
+cxx-qt-lib-headers = "0.6.0"
+
+# We compile the Docker container with musl to get a static library. Smaller, faster.
+# BUT that means that we need to include openssl
+# Documentation on the syntax:
+# https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#platform-specific-dependencies
+[target.'cfg(all(target_arch = "x86_64", target_os="linux", target_env="musl"))'.dependencies]
+# openssl = { version = "0.10.36", features = ["vendored"] }

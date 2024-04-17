@@ -1,0 +1,82 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'cxx-qt-lib-test'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=cxx-qt-lib-test",
+                    "--package=cxx-qt-lib-test"
+                ],
+                "filter": {
+                    "name": "cxx-qt-lib-test",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "RUST_BACKTRACE": "1",
+                "RUST_LOG": "DEBUG,cxx_qt_lib_test=TRACE"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "terminal": "console"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'cxx-qt-lib-test'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=cxx-qt-lib-test",
+                    "--package=cxx-qt-lib-test"
+                ],
+                "filter": {
+                    "name": "cxx-qt-lib-test",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "RUST_BACKTRACE": "1",
+                "RUST_LOG": "DEBUG,cxx_qt_lib_test=TRACE"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "terminal": "console"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'integration_tests'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=integration_tests",
+                    "--package=cxx-qt-lib-test"
+                ],
+                "filter": {
+                    "name": "integration_tests",
+                    "kind": "test"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "RUST_BACKTRACE": "1",
+                "RUST_LOG": "DEBUG,cxx_qt_lib_test=TRACE"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "terminal": "console"
+        }
+    ]
+}

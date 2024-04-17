@@ -1,0 +1,13 @@
+{
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "rust-analyzer.debug.engineSettings": {
+        "lldb": {
+            "internalConsoleOptions": "openOnSessionStart",
+            "terminal": "console"
+        }
+    },
+    "rust-analyzer.debug.openDebugPane": true,
+    "rust-analyzer.runnables.extraEnv": {
+        "RUST_LOG": "DEBUG,cxx_qt_lib_test=TRACE"
+    }
+}
