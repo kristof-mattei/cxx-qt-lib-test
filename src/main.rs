@@ -4,6 +4,7 @@ use cxx_qt_lib::{QGuiApplication, QQmlApplicationEngine, QUrl};
 use cxx_qt_lib_test::init_resources;
 
 fn main() {
+    // IF YOU REMOVE THIS LINE IT'LL BREAK
     init_resources();
 
     // Create the application and engine
@@ -27,6 +28,7 @@ mod tests {
 
     #[test]
     fn init() {
+        // IF YOU REMOVE THIS LINE IT'LL BREAK
         init_resources();
     }
 

@@ -2,6 +2,7 @@ use cxx_qt_lib_test::init_resources;
 
 #[test]
 fn init() {
+    // IF YOU REMOVE THIS LINE IT'LL BREAK
     init_resources();
 }
 
