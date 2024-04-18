@@ -1,12 +1,10 @@
-pub mod cxxqt_object;
-
-mod shared;
+pub use cxx_qt_lib_test;
 
 use cxx_qt_lib::{QGuiApplication, QQmlApplicationEngine, QUrl};
+use cxx_qt_lib_test::init_resources;
 
 fn main() {
-    // COMMENT ME TO GET A DIFFERENT ERROR
-    shared::init_resources();
+    init_resources();
 
     // Create the application and engine
     let mut app = QGuiApplication::new();
@@ -20,5 +18,21 @@ fn main() {
     // Start the app
     if let Some(app) = app.as_mut() {
         app.exec();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use cxx_qt_lib_test::init_resources;
+
+    #[test]
+    fn init() {
+        init_resources();
+    }
+
+    #[test]
+    fn another_test() {
+        let one_less_kid = "👨‍👩‍👦‍👦".chars().take(5).collect::<String>();
+        assert_eq!(one_less_kid, "👨‍👩‍👦");
     }
 }
